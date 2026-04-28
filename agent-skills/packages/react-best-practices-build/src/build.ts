@@ -212,7 +212,7 @@ async function buildSkill(skillConfig: SkillConfig) {
         : 'MEDIUM'
 
       // Extract description (format: **Description:** text)
-      const descMatch = block.match(/\*\*Description:\*\*\s+(.+?)(?=\n\n##|$)/s)
+      const descMatch = block.match(/\*\*Description:\*\*\s+([\s\S]+?)(?=\n\n##|$)/)
       const description = descMatch ? descMatch[1].trim() : ''
 
       // Update section if it exists
