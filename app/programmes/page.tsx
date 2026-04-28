@@ -1,6 +1,9 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import {
   MessageCircle,
   Brain,
@@ -8,21 +11,28 @@ import {
   MessageSquare,
   School,
   CheckCircle2,
-  HelpCircle,
+  Sparkles,
+  ArrowRight,
 } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/Accordion";
 
 export default function Programmes() {
   const programmes = [
     {
-      title: "Early Intervention Programme (EIPIC)",
+      title: "Early Intervention (EIPIC)",
       age: "24 months – 6 years old",
       for: "Children aged 24 months to 6 years old with developmental delays or disabilities.",
       session:
-        "Sessions combine one-to-one time with the child's Early Interventionist and small group activities. Goals are set using standardised assessments (AEPS) and captured in an Individualised Education Programme (IEP). Each session targets developmental domains such as communication, cognition, motor skills, and daily living skills. Caregiver involvement is embedded throughout and parents receive strategies to continue learning at home.",
+        "Sessions combine one-to-one time with the child's Early Interventionist and small group activities. Goals are set using standardised assessments (AEPS) and captured in an Individualised Education Programme (IEP). Each session targets developmental domains such as communication, cognition, motor skills, and daily living skills.",
       features: [
         "Individualised Education Programme (IEP)",
         "AEPS Standardised Assessments",
-        "Caregiver coaching & take-home strategies",
+        "Caregiver coaching & strategies",
       ],
       color: "brand-red",
       icon: Brain,
@@ -32,7 +42,7 @@ export default function Programmes() {
       age: "2 – 14 years old",
       for: "Children with sensory processing difficulties, fine motor delays, or challenges with daily living tasks.",
       session:
-        "OT sessions help children become as independent as possible in areas such as self-care, play, and school readiness. Sessions may include sensory activities, hand-strengthening tasks, and functional skill practice.",
+        "OT sessions help children become as independent as possible in areas such as self-care, play, and school readiness. Sessions include sensory activities, hand-strengthening tasks, and functional skill practice tailored to their unique needs.",
       features: [
         "Sensory integration activities",
         "Functional skill practice",
@@ -46,28 +56,47 @@ export default function Programmes() {
       age: "2 – 14 years old",
       for: "Children with speech delays, language difficulties, or communication challenges.",
       session:
-        "Sessions are designed to be engaging and low-stress, using play-based techniques. A customised therapy plan is developed for each child and reviewed regularly.",
+        "Sessions are designed to be engaging and low-stress, using play-based techniques. A customised therapy plan is developed for each child and reviewed regularly to ensure continuous growth and confidence.",
       features: [
         "Play-based techniques",
         "Customised therapy plans",
         "Regular progress reviews",
       ],
-      color: "brand-yellow",
+      color: "brand-blue",
       icon: MessageSquare,
     },
     {
-      title: "Before & After School Care (SPED Students)",
-      age: "7 – 12/14 years old",
-      for: "Children aged 7–12 (Woodlands) or 7–14 (Tampines) who are currently enrolled in SPED schools.",
+      title: "Student Care (SPED)",
+      age: "7 – 14 years old",
+      for: "Children currently enrolled in SPED schools who require a supportive after-school environment.",
       session:
-        "Activities cover social skills, communication, cognitive development, fine motor skills, and adaptive daily living, supporting both the child's growth and working parents' schedules.",
+        "Activities cover social skills, communication, cognitive development, fine motor skills, and adaptive daily living, supporting both the child's growth and working parents' schedules in a nurturing space.",
       features: [
-        "Supports working parents' schedules",
+        "Supports working parents",
         "Social skills development",
         "Adaptive living support",
       ],
-      color: "brand-blue",
+      color: "brand-orange",
       icon: School,
+    },
+  ];
+
+  const faqs = [
+    {
+      q: "Are sessions individual or group?",
+      a: "Both. Early Intervention sessions include individual one-to-one time as well as small group activities, allowing children to practise skills in a supported social setting while receiving focused attention.",
+    },
+    {
+      q: "How long are sessions?",
+      a: "We offer flexible session lengths, with some extending up to 4 hours to ensure meaningful progress and engagement without rushing the child's natural learning pace.",
+    },
+    {
+      q: "How is progress measured?",
+      a: "We use standardised assessments (AEPS) and capture goals in an Individualised Education Programme (IEP). Progress is reviewed regularly with parents to ensure alignment and celebrate milestones.",
+    },
+    {
+      q: "How do subsidies work?",
+      a: "We are an ECDA-approved provider and registered for Baby Bonus. Our team can guide you through the process of accessing available government support and subsidies.",
     },
   ];
 
@@ -76,78 +105,103 @@ export default function Programmes() {
       <Navbar />
 
       {/* Header */}
-      <section className="pt-32 pb-20 px-4 bg-brand-green/5">
-        <div className="max-w-7xl mx-auto text-center space-y-6">
-          <h1 className="text-5xl md:text-6xl font-black text-gray-900">
-            Our Programmes
+      <section className="relative pt-40 pb-24 px-4 overflow-hidden">
+        <div className="absolute top-0 right-0 w-full h-full bg-brand-green/5 skew-y-6 -z-10 origin-top-right" />
+        <div className="max-w-7xl mx-auto text-center space-y-8 relative">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-brand-green/10 text-brand-green rounded-full font-bold text-sm border border-brand-green/20"
+          >
+            <Sparkles size={16} />
+            <span>Milestone-based Approach</span>
+          </motion.div>
+          
+          <h1 className="text-5xl md:text-8xl font-black text-ink leading-[0.95] text-balance">
+            Our <span className="text-brand-green">Programmes</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-medium leading-relaxed">
+          
+          <p className="text-xl md:text-2xl text-ink-light max-w-2xl mx-auto font-medium leading-relaxed text-balance">
             Specialized programmes designed to meet each child where they are
-            and help them reach their next milestone.
+            and help them reach their next milestone with confidence.
           </p>
         </div>
       </section>
 
-      {/* Programme Cards */}
-      <section className="py-24 px-4 bg-white">
-        <div className="max-w-7xl mx-auto space-y-16">
+      {/* Programme Cards - Alternating Layout */}
+      <section className="py-32 px-4 bg-white">
+        <div className="max-w-7xl mx-auto space-y-24">
           {programmes.map((prog, i) => (
-            <div
+            <motion.div
               key={i}
-              className={`clay-card overflow-hidden group hover:shadow-2xl transition-all duration-500 border-${prog.color}/10`}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="clay-card overflow-hidden group hover:shadow-2xl transition-all duration-700"
             >
-              <div className="flex flex-col md:row">
+              <div className={`flex flex-col ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
                 <div
-                  className={`md:w-1/3 bg-${prog.color}/5 p-12 flex flex-col items-center justify-center text-center space-y-6`}
+                  className={`lg:w-2/5 bg-surface p-12 md:p-20 flex flex-col items-center justify-center text-center space-y-8 border-surface`}
                 >
                   <div
-                    className={`w-24 h-24 rounded-3xl bg-${prog.color} text-white flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform`}
+                    className={`w-28 h-28 rounded-3xl ${
+                      prog.color === 'brand-red' ? 'bg-brand-red' : 
+                      prog.color === 'brand-green' ? 'bg-brand-green' : 
+                      prog.color === 'brand-blue' ? 'bg-brand-blue' : 'bg-brand-orange'
+                    } text-white flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}
                   >
-                    <prog.icon size={48} />
+                    <prog.icon size={56} />
                   </div>
-                  <div>
-                    <h3 className={`text-2xl font-black text-gray-900 mb-2`}>
+                  <div className="space-y-4">
+                    <h3 className="text-3xl md:text-4xl font-black text-ink leading-tight">
                       {prog.title}
                     </h3>
-                    <div className="bg-white/80 rounded-full px-4 py-1 inline-block font-bold text-sm text-gray-600 border border-gray-100">
-                      Age: {prog.age}
+                    <div className="clay-card bg-white px-6 py-2 inline-block font-black text-ink-light border-surface">
+                      {prog.age}
                     </div>
                   </div>
                 </div>
 
-                <div className="md:w-2/3 p-12 space-y-8">
+                <div className="lg:w-3/5 p-12 md:p-16 space-y-10">
                   <div className="space-y-4">
-                    <h4 className="text-lg font-black text-gray-400 uppercase tracking-widest">
+                    <h4 className="text-sm font-black text-ink/30 uppercase tracking-[0.2em]">
                       Who it's for
                     </h4>
-                    <p className="text-xl text-gray-800 font-bold leading-relaxed">
+                    <p className="text-2xl text-ink font-black leading-snug">
                       {prog.for}
                     </p>
                   </div>
 
                   <div className="space-y-4">
-                    <h4 className="text-lg font-black text-gray-400 uppercase tracking-widest">
+                    <h4 className="text-sm font-black text-ink/30 uppercase tracking-[0.2em]">
                       What a session looks like
                     </h4>
-                    <p className="text-lg text-gray-600 font-medium leading-relaxed">
+                    <p className="text-lg text-ink-light font-medium leading-relaxed">
                       {prog.session}
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {prog.features.map((feature, j) => (
-                      <div key={j} className="flex items-center gap-3">
-                        <CheckCircle2 className={`text-${prog.color}`} size={20} />
-                        <span className="font-bold text-gray-700">{feature}</span>
+                      <div key={j} className="flex items-center gap-3 group/feat">
+                        <div className={`w-8 h-8 rounded-full ${
+                          prog.color === 'brand-red' ? 'bg-brand-red/10 text-brand-red' : 
+                          prog.color === 'brand-green' ? 'bg-brand-green/10 text-brand-green' : 
+                          prog.color === 'brand-blue' ? 'bg-brand-blue/10 text-brand-blue' : 'bg-brand-orange/10 text-brand-orange'
+                        } flex items-center justify-center shrink-0`}>
+                          <CheckCircle2 size={18} />
+                        </div>
+                        <span className="font-bold text-ink-light">{feature}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="pt-4">
+                  <div className="pt-6">
                     <Link
                       href="https://wa.me/6593867654?text=Hi%20Train%20Kids!%20I%20would%20like%20to%20know%20more%20about%20your%20programmes."
                       target="_blank"
-                      className={`clay-button bg-${prog.color} text-white px-8 py-4 inline-flex items-center gap-3 font-black text-lg`}
+                      className="clay-button bg-brand-green text-white px-10 py-5 inline-flex items-center gap-3 font-black text-xl hover:scale-105 shadow-xl shadow-brand-green/20"
                     >
                       <MessageCircle size={24} />
                       Enquire Now
@@ -155,54 +209,43 @@ export default function Programmes() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="py-24 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl font-black text-gray-900">
-              Programmes FAQ
+      {/* FAQs - Premium Accordion */}
+      <section className="py-32 px-4 bg-surface relative overflow-hidden">
+        <div className="max-w-4xl mx-auto relative">
+          <div className="text-center mb-20 space-y-6">
+            <h2 className="text-4xl md:text-7xl font-black text-ink leading-tight">
+              Programmes <span className="text-brand-orange">FAQ</span>
             </h2>
-            <p className="text-lg text-gray-600 font-medium">
-              Common questions about our sessions and approach.
+            <p className="text-xl text-ink-light font-medium max-w-xl mx-auto">
+              Everything you need to know about our approach and how we support your child's journey.
             </p>
           </div>
 
-          <div className="space-y-6">
-            {[
-              {
-                q: "Are sessions individual or group?",
-                a: "Both. Early Intervention sessions include individual one-to-one time as well as small group activities, allowing children to practise skills in a supported social setting.",
-              },
-              {
-                q: "How long are sessions?",
-                a: "We offer flexible session lengths, with some extending up to 4 hours to ensure meaningful progress and engagement.",
-              },
-              {
-                q: "How is progress measured?",
-                a: "We use standardised assessments (AEPS) and capture goals in an Individualised Education Programme (IEP). Progress is reviewed regularly with parents.",
-              },
-              {
-                q: "How do subsidies work?",
-                a: "We are an ECDA-approved provider and registered for Baby Bonus. Our team can guide you through the process of accessing available government support.",
-              },
-            ].map((faq, i) => (
-              <div key={i} className="clay-card p-8 bg-white space-y-4">
-                <div className="flex gap-4 items-start">
-                  <HelpCircle className="text-brand-orange shrink-0" size={24} />
-                  <h3 className="text-xl font-black text-gray-900 leading-tight">
-                    {faq.q}
-                  </h3>
-                </div>
-                <p className="text-gray-600 font-medium leading-relaxed pl-10">
-                  {faq.a}
-                </p>
-              </div>
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, i) => (
+              <AccordionItem key={i} value={`item-${i}`}>
+                <AccordionTrigger>{faq.q}</AccordionTrigger>
+                <AccordionContent>{faq.a}</AccordionContent>
+              </AccordionItem>
             ))}
+          </Accordion>
+
+          <div className="mt-20 text-center">
+            <div className="clay-card p-10 bg-white inline-flex flex-col md:flex-row items-center gap-8 shadow-xl">
+              <p className="text-xl font-bold text-ink">Have more questions?</p>
+              <Link 
+                href="/contact" 
+                className="clay-button bg-brand-orange text-white px-8 py-4 flex items-center gap-2 hover:rotate-2 transition-all shadow-lg"
+              >
+                <span className="font-black">Contact Us Directly</span>
+                <ArrowRight size={20} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

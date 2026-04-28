@@ -1,40 +1,74 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-red: #FF0000;
-  --color-brand-green: #00AA00;
-  --color-brand-yellow: #FFFF00;
-  --color-brand-blue: #0000FF;
-  --color-brand-orange: #FF8800;
+  /* OKLCH Color Palette - Harmonious and Nurturing */
+  --color-brand-green: oklch(0.65 0.18 145);
+  --color-brand-green-light: oklch(0.92 0.05 145);
+  --color-brand-orange: oklch(0.75 0.18 55);
+  --color-brand-blue: oklch(0.55 0.18 260);
+  --color-brand-red: oklch(0.60 0.18 25);
+  --color-brand-yellow: oklch(0.92 0.15 95);
   
-  --font-nunito: "Nunito", sans-serif;
-  --font-dm-sans: "DM Sans", sans-serif;
+  /* Tinted Neutrals - Avoiding clinical grays */
+  --color-base: oklch(0.99 0.005 145);
+  --color-surface: oklch(0.97 0.01 145);
+  --color-ink: oklch(0.22 0.02 145);
+  --color-ink-light: oklch(0.45 0.02 145);
+
+  /* Typography Variables */
+  --font-display: var(--font-display), "Bricolage Grotesque", sans-serif;
+  --font-body: var(--font-body), "Lexend", sans-serif;
 }
 
-/* Claymorphism Utilities */
+/* Claymorphism Utilities - Premium Multi-layered Shadows */
 @utility clay-card {
-  @apply bg-white/80 backdrop-blur-sm border-2 border-white rounded-3xl;
-  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.05), 
-              inset -4px -4px 8px rgba(0, 0, 0, 0.05),
-              inset 4px 4px 8px rgba(255, 255, 255, 0.8);
+  @apply bg-white/80 backdrop-blur-md border border-white rounded-[2rem];
+  box-shadow: 
+    0 20px 40px -10px oklch(0.25 0.02 145 / 0.08),
+    inset -8px -8px 16px -4px oklch(0.25 0.02 145 / 0.05),
+    inset 8px 8px 16px -4px oklch(1 0 0 / 0.8);
 }
 
 @utility clay-button {
-  @apply rounded-2xl transition-all duration-200 active:scale-95;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1),
-              inset -2px -2px 4px rgba(0, 0, 0, 0.1),
-              inset 2px 2px 4px rgba(255, 255, 255, 0.3);
+  @apply rounded-2xl transition-all duration-300 active:scale-95 hover:shadow-xl;
+  box-shadow: 
+    0 10px 20px -5px oklch(0.25 0.02 145 / 0.1),
+    inset -4px -4px 8px -2px oklch(0.25 0.02 145 / 0.1),
+    inset 4px 4px 8px -2px oklch(1 0 0 / 0.3);
 }
 
 @utility clay-inset {
-  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.05),
-              inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+  @apply rounded-2xl;
+  box-shadow: 
+    inset 6px 6px 12px oklch(0.25 0.02 145 / 0.05),
+    inset -6px -6px 12px oklch(1 0 0 / 0.8);
 }
 
+/* Global Styles */
 body {
-  @apply font-dm-sans text-gray-800 bg-[#F8FAFC];
+  @apply font-body text-ink bg-base selection:bg-brand-green/20 selection:text-brand-green;
+  line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-nunito font-bold;
+  @apply font-display font-extrabold tracking-tight text-ink;
+  line-height: 1.1;
+}
+
+p {
+  max-width: 75ch; /* Cap line length for readability */
+}
+
+/* Custom Utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }

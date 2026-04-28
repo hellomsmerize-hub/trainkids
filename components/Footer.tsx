@@ -1,122 +1,127 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MessageCircle, Mail, MapPin, Phone } from "lucide-react";
+import { MessageCircle, Mail, MapPin, Phone, ArrowRight, Heart } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-white pt-20 pb-10 px-4 md:px-8 border-t border-gray-100">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-        <div className="col-span-1 md:col-span-1">
+    <footer className="bg-white pt-24 pb-12 px-4 md:px-8 border-t border-surface">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20">
+        <div className="lg:col-span-4 space-y-8">
           <Image
             src="/logo.png"
             alt="TrainKids Logo"
             width={200}
             height={66}
-            className="mb-6 h-16 w-auto"
+            className="h-16 w-auto"
           />
-          <p className="text-gray-600 mb-6 leading-relaxed">
-            We Teach. We Guide. We Encourage. Supporting every child's journey
+          <p className="text-ink-light text-lg leading-relaxed font-medium max-w-sm">
+            We Teach • We Guide • We Encourage. Supporting every child's journey
             with love and expert care since 2015.
           </p>
           <div className="flex gap-4">
             <Link
               href="https://www.facebook.com/trainkids.specialneeds"
-              className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all"
+              target="_blank"
+              className="w-12 h-12 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all shadow-inner"
             >
-              <MessageCircle size={20} />
+              <MessageCircle size={24} />
             </Link>
             <Link
               href="mailto:admin@trainkids.com.sg"
-              className="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-brand-orange hover:bg-brand-orange hover:text-white transition-all"
+              className="w-12 h-12 rounded-2xl bg-brand-orange/10 flex items-center justify-center text-brand-orange hover:bg-brand-orange hover:text-white transition-all shadow-inner"
             >
-              <Mail size={20} />
+              <Mail size={24} />
             </Link>
           </div>
         </div>
 
-        <div>
-          <h4 className="text-lg font-bold mb-6 text-gray-800">Programmes</h4>
+        <div className="lg:col-span-2 space-y-8">
+          <h4 className="text-xl font-black text-ink">Programmes</h4>
           <ul className="space-y-4">
-            <li>
-              <Link href="/programmes" className="text-gray-600 hover:text-brand-red">
-                Early Intervention (EIP)
-              </Link>
+            {[
+              { name: "Early Intervention", color: "brand-red" },
+              { name: "Occupational Therapy", color: "brand-green" },
+              { name: "Speech Therapy", color: "brand-blue" },
+              { name: "Student Care", color: "brand-orange" },
+            ].map((item) => (
+              <li key={item.name}>
+                <Link 
+                  href="/programmes" 
+                  className={`text-ink-light hover:text-${item.color} font-bold transition-all flex items-center gap-2 group`}
+                >
+                  <span className={`w-1.5 h-1.5 rounded-full bg-${item.color} opacity-0 group-hover:opacity-100 transition-all`} />
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="lg:col-span-3 space-y-8">
+          <h4 className="text-xl font-black text-ink">Our Centres</h4>
+          <ul className="space-y-6">
+            <li className="flex gap-4 group">
+              <div className="w-10 h-10 rounded-xl bg-brand-red/10 flex items-center justify-center text-brand-red shrink-0 group-hover:rotate-12 transition-transform">
+                <MapPin size={20} />
+              </div>
+              <div className="text-ink-light text-sm font-medium">
+                <strong className="text-ink block mb-1">Woodlands</strong>
+                11 Woodlands Close, #01-10, S737853
+              </div>
             </li>
-            <li>
-              <Link href="/programmes" className="text-gray-600 hover:text-brand-green">
-                Occupational Therapy
-              </Link>
+            <li className="flex gap-4 group">
+              <div className="w-10 h-10 rounded-xl bg-brand-green/10 flex items-center justify-center text-brand-green shrink-0 group-hover:rotate-12 transition-transform">
+                <MapPin size={20} />
+              </div>
+              <div className="text-ink-light text-sm font-medium">
+                <strong className="text-ink block mb-1">Tampines</strong>
+                Blk 349 Tampines St 33, #01-434, S520349
+              </div>
             </li>
-            <li>
-              <Link href="/programmes" className="text-gray-600 hover:text-brand-yellow">
-                Speech Therapy
-              </Link>
-            </li>
-            <li>
-              <Link href="/programmes" className="text-gray-600 hover:text-brand-blue">
-                Before & After School Care
-              </Link>
+            <li className="flex gap-4 group">
+              <div className="w-10 h-10 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange shrink-0 group-hover:rotate-12 transition-transform">
+                <Phone size={20} />
+              </div>
+              <div className="text-ink-light text-sm font-medium">
+                <strong className="text-ink block mb-1">WhatsApp</strong>
+                9386 7654 (Mon—Fri, 9am—6pm)
+              </div>
             </li>
           </ul>
         </div>
 
-        <div>
-          <h4 className="text-lg font-bold mb-6 text-gray-800">Our Centres</h4>
-          <ul className="space-y-4">
-            <li className="flex gap-3">
-              <MapPin className="text-brand-red shrink-0" size={20} />
-              <span className="text-gray-600 text-sm">
-                <strong>Woodlands:</strong> 11 Woodlands Close, #01-10, S737853
-              </span>
-            </li>
-            <li className="flex gap-3">
-              <MapPin className="text-brand-green shrink-0" size={20} />
-              <span className="text-gray-600 text-sm">
-                <strong>Tampines:</strong> Blk 349 Tampines St 33, #01-434, S520349
-              </span>
-            </li>
-            <li className="flex gap-3 pt-2">
-              <Phone className="text-brand-orange shrink-0" size={20} />
-              <span className="text-gray-600 text-sm">9386 7654 (WhatsApp)</span>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="text-lg font-bold mb-6 text-gray-800">Quick Links</h4>
-          <ul className="space-y-4">
-            <li>
-              <Link href="/about" className="text-gray-600 hover:text-brand-green">
-                About Us
+        <div className="lg:col-span-3 space-y-8">
+          <h4 className="text-xl font-black text-ink">Quick Links</h4>
+          <div className="grid grid-cols-1 gap-4">
+            {[
+              { name: "About Us", href: "/about" },
+              { name: "Therapy Tips", href: "/tips" },
+              { name: "Student Showcase", href: "/showcase" },
+              { name: "Contact & Visit", href: "/contact" },
+            ].map((link) => (
+              <Link 
+                key={link.name}
+                href={link.href} 
+                className="clay-button bg-surface text-ink px-6 py-3 flex items-center justify-between group hover:bg-brand-green hover:text-white"
+              >
+                <span className="font-bold">{link.name}</span>
+                <ArrowRight size={18} className="opacity-0 group-hover:opacity-100 transition-all" />
               </Link>
-            </li>
-            <li>
-              <Link href="/tips" className="text-gray-600 hover:text-brand-green">
-                Therapy Tips
-              </Link>
-            </li>
-            <li>
-              <Link href="/showcase" className="text-gray-600 hover:text-brand-green">
-                Student Showcase
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="text-gray-600 hover:text-brand-green">
-                Contact & Visit
-              </Link>
-            </li>
-          </ul>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto pt-10 border-t border-gray-100 flex flex-col md:row items-center justify-between gap-4">
-        <p className="text-sm text-gray-500">
-          © 2026 Train Kids Early Intervention & Educare Centre. All rights
-          reserved.
-        </p>
-        <div className="flex gap-8 text-sm text-gray-400">
-          <Link href="/privacy">Privacy Policy</Link>
-          <Link href="/terms">Terms of Service</Link>
+      <div className="max-w-7xl mx-auto pt-12 border-t border-surface flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="flex items-center gap-2 text-ink-light font-bold">
+          <Heart size={16} className="text-brand-red animate-pulse" />
+          <p className="text-sm">
+            © 2026 Train Kids Early Intervention & Educare Centre.
+          </p>
+        </div>
+        <div className="flex gap-10 text-sm font-bold text-ink-light">
+          <Link href="/privacy" className="hover:text-brand-green transition-colors">Privacy Policy</Link>
+          <Link href="/terms" className="hover:text-brand-green transition-colors">Terms of Service</Link>
         </div>
       </div>
     </footer>

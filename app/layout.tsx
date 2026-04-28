@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Nunito, DM_Sans } from "next/font/google";
+import { Bricolage_Grotesque, Lexend } from "next/font/google";
 import "./globals.css";
 
-const nunito = Nunito({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-nunito",
-  weight: ["400", "600", "700", "800", "900"],
+  variable: "--font-display",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const dmSans = DM_Sans({
+const lexend = Lexend({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
-  weight: ["400", "500", "700"],
+  variable: "--font-body",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${nunito.variable} ${dmSans.variable} antialiased`}>
+      <body className={`${bricolage.variable} ${lexend.variable} antialiased`}>
         {children}
         <WhatsAppButton />
       </body>
