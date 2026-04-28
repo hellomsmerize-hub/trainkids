@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-red: #FF0000;
+  --color-brand-green: #00AA00;
+  --color-brand-yellow: #FFFF00;
+  --color-brand-blue: #0000FF;
+  --color-brand-orange: #FF8800;
+  
+  --font-nunito: "Nunito", sans-serif;
+  --font-dm-sans: "DM Sans", sans-serif;
+}
+
+/* Claymorphism Utilities */
+@utility clay-card {
+  @apply bg-white/80 backdrop-blur-sm border-2 border-white rounded-3xl;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.05), 
+              inset -4px -4px 8px rgba(0, 0, 0, 0.05),
+              inset 4px 4px 8px rgba(255, 255, 255, 0.8);
+}
+
+@utility clay-button {
+  @apply rounded-2xl transition-all duration-200 active:scale-95;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1),
+              inset -2px -2px 4px rgba(0, 0, 0, 0.1),
+              inset 2px 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+@utility clay-inset {
+  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.05),
+              inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+body {
+  @apply font-dm-sans text-gray-800 bg-[#F8FAFC];
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-nunito font-bold;
+}
