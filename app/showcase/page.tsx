@@ -55,12 +55,12 @@ export default function StudentShowcase() {
             <span>Success Stories</span>
           </motion.div>
           
-          <h1 className="text-5xl md:text-8xl font-black text-ink leading-[0.95] text-balance">
+          <h1 className="text-5xl md:text-8xl font-black text-ink leading-[0.95] text-balance text-center">
             Real Progress. <br />
             <span className="text-brand-red">Real Families.</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-ink-light max-w-2xl mx-auto font-medium leading-relaxed text-balance">
+          <p className="text-xl md:text-2xl text-ink-light max-w-2xl mx-auto font-medium leading-relaxed text-balance text-center">
             Every child who walks through our doors has their own starting
             point. Here are some of the milestones we've celebrated together.
           </p>
@@ -81,19 +81,19 @@ export default function StudentShowcase() {
             >
               <div className="space-y-8">
                 <div
-                  className={`w-16 h-16 rounded-2xl ${
+                  className={`w-16 h-16 rounded-2xl mx-auto flex items-center justify-center text-white shadow-xl group-hover:rotate-12 transition-all duration-500 ${
                     milestone.color === 'brand-red' ? 'bg-brand-red' : 
                     milestone.color === 'brand-green' ? 'bg-brand-green' : 
                     milestone.color === 'brand-blue' ? 'bg-brand-blue' : 'bg-brand-orange'
-                  } text-white flex items-center justify-center shadow-xl group-hover:rotate-12 transition-all duration-500`}
+                  }`}
                 >
                   <Star size={32} />
                 </div>
                 <div className="space-y-4">
-                  <h3 className="text-3xl md:text-4xl font-black text-ink leading-tight">
+                  <h3 className="text-3xl md:text-4xl font-black text-ink leading-tight text-center">
                     {milestone.title}
                   </h3>
-                  <p className="text-xl text-ink-light font-medium leading-relaxed">
+                  <p className="text-xl text-ink-light font-medium leading-relaxed text-center">
                     {milestone.story}
                   </p>
                 </div>
@@ -148,7 +148,7 @@ export default function StudentShowcase() {
                   ))}
                 </div>
                 
-                <p className="text-xl text-ink-light font-medium italic leading-relaxed mb-10 relative z-10">
+                <p className="text-xl text-ink-light font-medium italic leading-relaxed mb-10 relative z-10 text-center">
                   "Train Kids has been a second home for our son. The progress
                   he's made in his speech and social skills in just a few months
                   is more than we saw in a whole year elsewhere."
@@ -218,7 +218,7 @@ export default function StudentShowcase() {
               Ready to see what's <br />
               <span className="text-brand-green">possible?</span>
             </h2>
-            <p className="text-xl md:text-2xl text-ink-light font-medium max-w-xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-ink-light font-medium max-w-xl mx-auto leading-relaxed text-center">
               Every child's journey is unique. Let's start building your child's success story today.
             </p>
             <div className="flex justify-center pt-6">

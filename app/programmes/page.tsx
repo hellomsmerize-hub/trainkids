@@ -117,11 +117,11 @@ export default function Programmes() {
             <span>Milestone-based Approach</span>
           </motion.div>
           
-          <h1 className="text-5xl md:text-8xl font-black text-ink leading-[0.95] text-balance">
+          <h1 className="text-5xl md:text-8xl font-black text-ink leading-[0.95] text-balance text-center">
             Our <span className="text-brand-green">Programmes</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-ink-light max-w-2xl mx-auto font-medium leading-relaxed text-balance">
+          <p className="text-xl md:text-2xl text-ink-light max-w-2xl mx-auto font-medium leading-relaxed text-balance text-center">
             Specialized programmes designed to meet each child where they are
             and help them reach their next milestone with confidence.
           </p>
@@ -145,39 +145,41 @@ export default function Programmes() {
                   className={`lg:w-2/5 bg-surface p-12 md:p-20 flex flex-col items-center justify-center text-center space-y-8 border-surface`}
                 >
                   <div
-                    className={`w-28 h-28 rounded-3xl ${
-                      prog.color === 'brand-red' ? 'bg-brand-red' : 
-                      prog.color === 'brand-green' ? 'bg-brand-green' : 
-                      prog.color === 'brand-blue' ? 'bg-brand-blue' : 'bg-brand-orange'
-                    } text-white flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}
+                    className={`w-24 h-24 rounded-3xl mx-auto flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 mb-8 ${
+                      prog.color === 'brand-red' ? 'bg-brand-red text-white' : 
+                      prog.color === 'brand-green' ? 'bg-brand-green text-white' : 
+                      prog.color === 'brand-blue' ? 'bg-brand-blue text-white' : 'bg-brand-orange text-white'
+                    }`}
                   >
                     <prog.icon size={56} />
                   </div>
                   <div className="space-y-4">
-                    <h3 className="text-3xl md:text-4xl font-black text-ink leading-tight">
+                    <h3 className="text-3xl md:text-4xl font-black text-ink leading-tight text-center">
                       {prog.title}
                     </h3>
-                    <div className="clay-card bg-white px-6 py-2 inline-block font-black text-ink-light border-surface">
-                      {prog.age}
+                    <div className="flex justify-center">
+                      <div className="clay-card bg-white px-6 py-2 inline-block font-black text-ink-light border-surface">
+                        {prog.age}
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 <div className="lg:w-3/5 p-12 md:p-16 space-y-10">
-                  <div className="space-y-4">
+                  <div className="space-y-4 text-center">
                     <h4 className="text-sm font-black text-ink/30 uppercase tracking-[0.2em]">
                       Who it's for
                     </h4>
-                    <p className="text-2xl text-ink font-black leading-snug">
+                    <p className="text-2xl text-ink font-black leading-snug text-center">
                       {prog.for}
                     </p>
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="space-y-4 text-center">
                     <h4 className="text-sm font-black text-ink/30 uppercase tracking-[0.2em]">
                       What a session looks like
                     </h4>
-                    <p className="text-lg text-ink-light font-medium leading-relaxed">
+                    <p className="text-lg text-ink-light font-medium leading-relaxed text-center">
                       {prog.session}
                     </p>
                   </div>
@@ -197,14 +199,18 @@ export default function Programmes() {
                     ))}
                   </div>
 
-                  <div className="pt-6">
+                  <div className="pt-10 flex justify-center">
                     <Link
                       href="https://wa.me/6593867654?text=Hi%20Train%20Kids!%20I%20would%20like%20to%20know%20more%20about%20your%20programmes."
                       target="_blank"
-                      className="clay-button bg-brand-green text-white px-10 py-5 inline-flex items-center gap-3 font-black text-xl hover:scale-105 shadow-xl shadow-brand-green/20"
+                      className={`clay-button ${
+                        prog.color === 'brand-red' ? 'bg-brand-red' : 
+                        prog.color === 'brand-green' ? 'bg-brand-green' : 
+                        prog.color === 'brand-blue' ? 'bg-brand-blue' : 'bg-brand-orange'
+                      } text-white px-8 py-4 flex items-center gap-3 hover:scale-105 transition-all shadow-xl`}
                     >
-                      <MessageCircle size={24} />
-                      Enquire Now
+                      <MessageCircle size={20} />
+                      <span className="font-extrabold">Enquire Now</span>
                     </Link>
                   </div>
                 </div>
@@ -221,7 +227,7 @@ export default function Programmes() {
             <h2 className="text-4xl md:text-7xl font-black text-ink leading-tight">
               Programmes <span className="text-brand-orange">FAQ</span>
             </h2>
-            <p className="text-xl text-ink-light font-medium max-w-xl mx-auto">
+            <p className="text-xl text-ink-light font-medium max-w-xl mx-auto text-justify">
               Everything you need to know about our approach and how we support your child's journey.
             </p>
           </div>

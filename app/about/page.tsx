@@ -26,12 +26,12 @@ export default function About() {
             <span>Our Origin Story</span>
           </motion.div>
           
-          <h1 className="text-5xl md:text-8xl font-black text-ink leading-[0.95] text-balance">
+          <h1 className="text-5xl md:text-8xl font-black text-ink leading-[0.95] text-balance text-center">
             How Train Kids <br />
             <span className="text-brand-red">Started</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-ink-light max-w-2xl mx-auto font-medium leading-relaxed text-balance">
+          <p className="text-xl md:text-2xl text-ink-light max-w-2xl mx-auto font-medium leading-relaxed text-balance text-center">
             Founded with a simple but powerful belief: children with
             developmental needs deserve more time to learn, not less.
           </p>
@@ -48,7 +48,7 @@ export default function About() {
             className="lg:col-span-7 space-y-10"
           >
             <div className="space-y-8 text-xl text-ink-light leading-relaxed font-medium">
-              <p>
+              <p className="text-left">
                 Train Kids was founded by two Early Interventionists who began
                 their careers working in a Voluntary Welfare Organisation (VWO)
                 early intervention centre. Through their years on the ground, they
@@ -70,12 +70,12 @@ export default function About() {
                 </p>
               </motion.div>
               
-              <p>
+              <p className="text-justify">
                 Many existing programmes offered limited session hours, leaving
                 little room for meaningful progress or for parents to catch their
                 breath. Train Kids was built to change that.
               </p>
-              <p>
+              <p className="text-justify">
                 From the start, the centre offered longer sessions of up to four
                 hours, giving each child the time and space to truly engage with
                 learning, and giving parents the much-needed respite to attend to
@@ -138,7 +138,7 @@ export default function About() {
             <h2 className="text-4xl md:text-7xl font-black text-ink leading-tight">
               Our Multidisciplinary <span className="text-brand-green">Team</span>
             </h2>
-            <p className="text-xl text-ink-light max-w-2xl mx-auto font-medium leading-relaxed">
+            <p className="text-xl text-ink-light max-w-2xl mx-auto font-medium leading-relaxed text-center">
               A dedicated group of professionals working together, sharing expertise to ensure your child's success.
             </p>
           </div>
@@ -185,7 +185,7 @@ export default function About() {
                   <h3 className="text-3xl font-black text-ink">
                     {member.role}
                   </h3>
-                  <p className="text-ink-light text-lg font-medium leading-relaxed">
+                  <p className="text-ink-light text-lg font-medium leading-relaxed text-center">
                     {member.desc}
                   </p>
                 </div>
@@ -239,14 +239,14 @@ export default function About() {
                     transition={{ delay: i * 0.1 }}
                     className="flex gap-6 group"
                   >
-                    <div className={`w-14 h-14 rounded-2xl ${item.color === 'brand-green' ? 'bg-brand-green' : item.color === 'brand-orange' ? 'bg-brand-orange' : 'bg-brand-blue'} flex items-center justify-center text-white shrink-0 shadow-xl group-hover:scale-110 transition-transform`}>
+                    <div className={`w-14 h-14 rounded-2xl ${item.color === 'brand-green' ? 'bg-brand-green' : item.color === 'brand-orange' ? 'bg-brand-orange' : 'bg-brand-blue'} flex items-center justify-center text-white shrink-0 shadow-xl group-hover:scale-110 transition-transform mx-auto`}>
                       <item.icon size={28} />
                     </div>
                     <div>
-                      <h4 className="text-2xl font-black text-ink mb-2 group-hover:text-brand-green transition-colors">
+                      <h4 className="text-2xl font-black text-ink mb-2 group-hover:text-brand-green transition-colors text-center">
                         {item.title}
                       </h4>
-                      <p className="text-ink-light text-lg font-medium leading-relaxed max-w-md">
+                      <p className="text-ink-light text-lg font-medium leading-relaxed max-w-md text-center">
                         {item.desc}
                       </p>
                     </div>
@@ -268,7 +268,7 @@ export default function About() {
               <h3 className="text-3xl font-black text-ink leading-tight text-balance">
                 Individualised, Evidence-based, Family-centred
               </h3>
-              <p className="text-xl text-ink-light font-medium leading-relaxed">
+              <p className="text-xl text-ink-light font-medium leading-relaxed text-justify">
                 Our approach is rooted in standard assessment tools (AEPS) and
                 continuous progress monitoring, ensuring your child receives the
                 most effective support tailored to their unique needs.

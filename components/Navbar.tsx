@@ -29,22 +29,22 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-4 md:px-8 ${
-        isScrolled ? "py-3" : "py-6"
+        isScrolled ? "py-2" : "py-6"
       }`}
     >
       <div
-        className={`max-w-7xl mx-auto flex items-center justify-between px-6 py-3 transition-all duration-500 ${
-          isScrolled ? "clay-card py-2 bg-white/95 shadow-2xl" : "bg-transparent"
+        className={`max-w-7xl mx-auto flex items-center justify-between px-6 py-2 transition-all duration-500 ${
+          isScrolled ? "clay-card bg-white/95 shadow-2xl" : "bg-transparent"
         }`}
       >
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2 group" aria-label="TrainKids Home">
           <div className="relative overflow-hidden">
             <Image
               src="/logo.png"
               alt="TrainKids Logo"
               width={180}
               height={60}
-              className="h-10 md:h-12 w-auto transition-transform duration-500 group-hover:scale-105"
+              className={`transition-all duration-500 ${isScrolled ? "h-12 md:h-14" : "h-16 md:h-24"} w-auto group-hover:scale-105`}
             />
           </div>
         </Link>
@@ -73,8 +73,10 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden w-12 h-12 flex items-center justify-center rounded-2xl bg-white shadow-lg text-ink"
+          className="md:hidden w-12 h-12 flex items-center justify-center rounded-2xl bg-white shadow-lg text-ink hover:scale-105 active:scale-95 transition-all"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-expanded={isMobileMenuOpen}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>

@@ -15,6 +15,14 @@ import {
   Sparkles,
   ExternalLink,
 } from "lucide-react";
+import { useEffect, useRef } from "react";
+
+// Types for Leaflet
+declare global {
+  interface Window {
+    L: any;
+  }
+}
 
 export default function Contact() {
   return (
@@ -34,12 +42,12 @@ export default function Contact() {
             <span>Connect With Us</span>
           </motion.div>
           
-          <h1 className="text-5xl md:text-8xl font-black text-ink leading-[0.95] text-balance">
+          <h1 className="text-5xl md:text-8xl font-black text-ink leading-[0.95] text-balance text-center">
             Contact & <br />
             <span className="text-brand-orange">Visit Us</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-ink-light max-w-2xl mx-auto font-medium leading-relaxed text-balance">
+          <p className="text-xl md:text-2xl text-ink-light max-w-2xl mx-auto font-medium leading-relaxed text-balance text-center">
             We're here to answer your questions and welcome you to our nurturing centres across Singapore.
           </p>
         </div>
@@ -162,11 +170,11 @@ export default function Contact() {
                     <div className={`w-14 h-14 rounded-2xl ${centre.color === 'brand-red' ? 'bg-brand-red' : 'bg-brand-green'} flex items-center justify-center text-white shadow-xl group-hover:rotate-6 transition-transform`}>
                       <MapPin size={28} />
                     </div>
-                    <h3 className="text-2xl font-black text-ink leading-tight">
+                    <h3 className="text-2xl font-black text-ink leading-tight text-left">
                       {centre.name}
                     </h3>
                   </div>
-                  <p className="text-xl text-ink-light font-medium leading-relaxed h-24">
+                  <p className="text-xl text-ink-light font-medium leading-relaxed h-24 text-center">
                     {centre.addr}
                   </p>
                   <div className="flex items-center gap-4 pt-4">
@@ -215,79 +223,21 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20 space-y-6">
             <h2 className="text-4xl md:text-7xl font-black text-ink leading-tight">Visit Our <span className="text-brand-blue">Centres</span></h2>
-            <p className="text-xl text-ink-light font-medium max-w-xl mx-auto">Find the location nearest to you and start your journey.</p>
+            <p className="text-xl text-ink-light font-medium max-w-xl mx-auto text-center">Find the location nearest to you and start your journey.</p>
           </div>
 
           <div className="relative h-[600px] w-full clay-card bg-white overflow-hidden border-none group shadow-2xl">
-            {/* Stylized Map Background */}
-            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:32px_32px]" />
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 to-transparent" />
+            {/* Google My Maps Integration */}
+            <iframe
+              src="https://www.google.com/maps/d/embed?mid=14Nhe6yI3uk1b3CaIA8Kx5DcMllEDpuA&ehbc=2E312F"
+              width="100%"
+              height="100%"
+              style={{ border: 0, marginTop: '-60px' }}
+              className="grayscale-[20%] contrast-[1.1] opacity-90 group-hover:opacity-100 transition-opacity duration-700"
+            />
             
-            <div className="absolute inset-0 flex items-center justify-center">
-              {/* Woodlands Pin */}
-              <motion.div 
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-[25%] left-[30%] group/pin"
-              >
-                <div className="relative">
-                  <div className="w-16 h-16 bg-brand-red rounded-3xl flex items-center justify-center text-white shadow-2xl cursor-pointer group-hover/pin:scale-110 transition-transform">
-                    <MapPin size={32} />
-                  </div>
-                  <div className="absolute top-20 left-1/2 -translate-x-1/2 clay-card bg-white p-6 whitespace-nowrap shadow-2xl opacity-0 group-hover/pin:opacity-100 transition-all duration-300 translate-y-4 group-hover/pin:translate-y-0">
-                    <p className="font-black text-ink text-lg mb-2">Woodlands Centre</p>
-                    <Link 
-                      href="https://maps.google.com/?q=11+Woodlands+Close+Singapore+737853" 
-                      target="_blank" 
-                      className="text-sm text-brand-blue font-black flex items-center gap-2 hover:text-brand-green"
-                    >
-                      Get Directions <ExternalLink size={14} />
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Tampines Pin */}
-              <motion.div 
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-                className="absolute bottom-[35%] right-[25%] group/pin"
-              >
-                <div className="relative">
-                  <div className="w-16 h-16 bg-brand-green rounded-3xl flex items-center justify-center text-white shadow-2xl cursor-pointer group-hover/pin:scale-110 transition-transform">
-                    <MapPin size={32} />
-                  </div>
-                  <div className="absolute top-20 left-1/2 -translate-x-1/2 clay-card bg-white p-6 whitespace-nowrap shadow-2xl opacity-0 group-hover/pin:opacity-100 transition-all duration-300 translate-y-4 group-hover/pin:translate-y-0">
-                    <p className="font-black text-ink text-lg mb-2">Tampines Centre</p>
-                    <Link 
-                      href="https://maps.google.com/?q=Blk+349+Tampines+Street+33+Singapore+520349" 
-                      target="_blank" 
-                      className="text-sm text-brand-blue font-black flex items-center gap-2 hover:text-brand-green"
-                    >
-                      Get Directions <ExternalLink size={14} />
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Connecting Path */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
-                <motion.path 
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  whileInView={{ pathLength: 1, opacity: 0.15 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 2, ease: "easeInOut" }}
-                  d="M 35% 30% Q 55% 55% 70% 60%" 
-                  stroke="oklch(0.55 0.18 260)" 
-                  strokeWidth="4" 
-                  fill="none" 
-                  strokeDasharray="12 12" 
-                />
-              </svg>
-            </div>
-
-            <div className="absolute bottom-10 left-10 right-10 text-center">
-              <div className="clay-card bg-white/80 backdrop-blur-md inline-block px-8 py-3 shadow-xl">
+            <div className="absolute bottom-10 left-10 right-10 text-center pointer-events-none">
+              <div className="clay-card bg-white/80 backdrop-blur-md inline-block px-8 py-3 shadow-xl border-white border">
                 <p className="text-ink-light font-black uppercase tracking-[0.3em] text-xs">
                   Premium Educational Hub • Singapore
                 </p>

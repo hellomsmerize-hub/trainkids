@@ -15,6 +15,7 @@ import {
   ArrowRight,
   Star,
   Sparkles,
+  Shield,
 } from "lucide-react";
 
 export default function Home() {
@@ -35,23 +36,25 @@ export default function Home() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 space-y-10"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-orange/10 text-brand-orange rounded-full font-bold text-sm border border-brand-orange/20">
-              <Sparkles size={16} className="animate-pulse" />
-              <span>We Teach • We Guide • We Encourage</span>
+            <div className="flex justify-start">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-orange/10 text-brand-orange rounded-full font-bold text-sm border border-brand-orange/20">
+                <Sparkles size={16} className="animate-pulse" />
+                <span>We Teach • We Guide • We Encourage</span>
+              </div>
             </div>
             
-            <h1 className="text-5xl md:text-8xl font-black text-ink leading-[0.95] text-balance">
+            <h1 className="text-5xl md:text-8xl font-black text-ink leading-[0.95] text-balance text-left">
               Giving Your Child the <br />
               <span className="text-brand-green">Solid Foundation</span> <br />
               They Deserve
             </h1>
             
-            <p className="text-xl md:text-2xl text-ink-light leading-relaxed max-w-xl font-medium">
+            <p className="text-xl md:text-2xl text-ink-light leading-relaxed max-w-xl font-medium text-left">
               Individualised early intervention and therapy for children aged 2 to 14
               with developmental needs, right here in Singapore.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-5 pt-4">
+            <div className="flex flex-col sm:flex-row gap-5 pt-4 justify-start">
               <Link
                 href="https://wa.me/6593867654?text=Hi%20Train%20Kids!%20I%20would%20like%20to%20know%20more%20about%20your%20programmes."
                 target="_blank"
@@ -74,33 +77,51 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9, rotate: 5 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="lg:col-span-5 relative"
+            className="lg:col-span-5 flex flex-col gap-8"
           >
-            <div className="clay-card p-4 rotate-3 scale-105 bg-brand-yellow/20 border-brand-yellow/30 absolute inset-0 -z-10 animate-float" />
-            <div className="clay-card p-4 relative overflow-hidden group">
-              <div className="relative aspect-square">
-                <Image
-                  src="/hero.png"
-                  alt="Therapist interacting with child"
-                  fill
-                  className="rounded-[1.5rem] object-cover transition-transform duration-1000 group-hover:scale-105"
-                  priority
-                />
+            {/* Logo above picture */}
+            <motion.div 
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="w-full max-w-[320px] md:max-w-[450px] mx-auto animate-float"
+            >
+              <Image
+                src="/logo.png"
+                alt="TrainKids Logo"
+                width={600}
+                height={200}
+                className="w-full h-auto drop-shadow-2xl"
+              />
+            </motion.div>
+
+            <div className="relative">
+              <div className="clay-card p-4 rotate-3 scale-105 bg-brand-yellow/20 border-brand-yellow/30 absolute inset-0 -z-10 animate-float" />
+              <div className="clay-card p-4 relative overflow-hidden group">
+                <div className="relative aspect-square">
+                  <Image
+                    src="/hero.png"
+                    alt="Therapist interacting with child"
+                    fill
+                    className="rounded-[1.5rem] object-cover transition-transform duration-1000 group-hover:scale-105"
+                    priority
+                  />
+                </div>
+                
+                <motion.div 
+                  initial={{ x: 20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 1, duration: 0.8 }}
+                  className="absolute bottom-8 left-8 right-8 clay-card bg-white/95 p-6 flex items-center gap-5 border-white shadow-2xl"
+                >
+                  <div className="w-20 h-20 bg-brand-red rounded-full flex items-center justify-center text-white font-black text-2xl shadow-xl ring-8 ring-brand-red/10 animate-pulse">
+                    300+
+                  </div>
+                  <div className="font-extrabold text-ink text-lg leading-tight">
+                    Children supported <br /> since 2015
+                  </div>
+                </motion.div>
               </div>
-              
-              <motion.div 
-                initial={{ x: 20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 1, duration: 0.8 }}
-                className="absolute bottom-8 left-8 right-8 clay-card bg-white/95 p-6 flex items-center gap-5 border-white shadow-2xl"
-              >
-                <div className="w-20 h-20 bg-brand-red rounded-full flex items-center justify-center text-white font-black text-2xl shadow-xl ring-8 ring-brand-red/10 animate-pulse">
-                  300+
-                </div>
-                <div className="font-extrabold text-ink text-lg leading-tight">
-                  Children supported <br /> since 2015
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -168,7 +189,7 @@ export default function Home() {
                 Why Parents Choose <br />
                 <span className="text-brand-orange">Train Kids</span>
               </h2>
-              <p className="text-xl text-ink-light font-medium leading-relaxed">
+              <p className="text-xl text-ink-light font-medium leading-relaxed text-left">
                 We provide a warm, nurturing environment where every child is
                 treated as an individual. We don't believe in one-size-fits-all solutions.
               </p>
@@ -201,8 +222,8 @@ export default function Home() {
                   color: "brand-blue",
                 },
                 {
-                  title: "Free Transport",
-                  desc: "Available for nearby areas including Woodlands, Sembawang, and Yishun (selected sessions).",
+                  title: "Transport Provided",
+                  desc: "Available for areas in Woodlands to support your child's daily commute to our centre.",
                   icon: Bus,
                   color: "brand-orange",
                 },
@@ -216,7 +237,7 @@ export default function Home() {
                   className="clay-card p-10 group hover:bg-white transition-all duration-500 border-transparent hover:border-brand-green/10"
                 >
                   <div
-                    className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-inner group-hover:scale-110 transition-transform ${
+                    className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-inner group-hover:scale-110 transition-transform mx-auto ${
                       card.color === 'brand-red' ? 'bg-brand-red/10 text-brand-red' :
                       card.color === 'brand-green' ? 'bg-brand-green/10 text-brand-green' :
                       card.color === 'brand-blue' ? 'bg-brand-blue/10 text-brand-blue' : 'bg-brand-orange/10 text-brand-orange'
@@ -224,14 +245,70 @@ export default function Home() {
                   >
                     <card.icon size={32} />
                   </div>
-                  <h3 className="text-2xl font-black mb-4 text-ink">
+                  <h3 className="text-2xl font-black mb-4 text-ink text-center">
                     {card.title}
                   </h3>
-                  <p className="text-ink-light leading-relaxed font-medium">
+                  <p className="text-ink-light leading-relaxed font-medium text-center">
                     {card.desc}
                   </p>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* New Segment: Programmes Preview */}
+      <section className="py-24 px-4 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="clay-card bg-brand-blue/5 p-12 md:p-20 relative overflow-hidden border-brand-blue/10">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-blue/10 rounded-full blur-3xl -translate-y-32 translate-x-32" />
+            
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="space-y-8">
+                <h2 className="text-4xl md:text-5xl font-black text-ink leading-tight">
+                  Tailored Programmes for <br />
+                  <span className="text-brand-blue">Every Stage</span>
+                </h2>
+                <p className="text-xl text-ink-light font-medium leading-relaxed">
+                  From early intervention to specialized therapy and student care, 
+                  we offer comprehensive support designed to help your child thrive.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  {["Early Intervention (EIP)", "Speech Therapy", "Occupational Therapy", "Student Care"].map((tag) => (
+                    <span key={tag} className="px-4 py-2 bg-white rounded-full text-sm font-bold text-brand-blue border border-brand-blue/10 shadow-sm">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="pt-4">
+                  <Link
+                    href="/programmes"
+                    className="clay-button bg-brand-blue text-white px-10 py-5 flex items-center justify-center gap-3 hover:scale-105 transition-all shadow-xl shadow-brand-blue/20"
+                  >
+                    <span className="font-extrabold text-xl">View All Programmes</span>
+                    <ArrowRight size={24} />
+                  </Link>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-6">
+                {[
+                  { label: "Nurturing Care", icon: Heart, color: "text-brand-red" },
+                  { label: "Expert Guidance", icon: Sparkles, color: "text-brand-orange" },
+                  { label: "Safe Space", icon: Shield, color: "text-brand-green" },
+                  { label: "Proven Results", icon: Star, color: "text-brand-blue" },
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    whileHover={{ y: -10 }}
+                    className="clay-card bg-white p-8 flex flex-col items-center text-center gap-4"
+                  >
+                    <item.icon size={32} className={item.color} />
+                    <span className="font-black text-ink text-sm uppercase tracking-widest">{item.label}</span>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -246,7 +323,7 @@ export default function Home() {
                 Real Progress. <br />
                 <span className="text-brand-orange">Real Families.</span>
               </h2>
-              <p className="text-xl text-ink-light font-medium">
+              <p className="text-xl text-ink-light font-medium text-left">
                 Small victories that make every morning a little brighter. Witness the impact of personalised care.
               </p>
             </div>
@@ -287,13 +364,13 @@ export default function Home() {
                 }`}
               >
                 <div>
-                  <div className={`w-14 h-14 rounded-full ${study.color === 'brand-red' ? 'bg-brand-red' : 'bg-brand-green'} flex items-center justify-center text-white mb-8 font-black text-2xl shadow-lg`}>
+                  <div className={`w-14 h-14 rounded-full ${study.color === 'brand-red' ? 'bg-brand-red' : 'bg-brand-green'} flex items-center justify-center text-white mb-8 font-black text-2xl shadow-lg mx-auto`}>
                     {study.step}
                   </div>
-                  <h3 className="text-3xl font-black mb-6 text-ink leading-tight group-hover:text-ink transition-colors">
+                  <h3 className="text-3xl font-black mb-6 text-ink leading-tight group-hover:text-ink transition-colors text-left">
                     "{study.title}"
                   </h3>
-                  <p className="text-xl text-ink-light italic mb-10 leading-relaxed">
+                  <p className="text-xl text-ink-light italic mb-10 leading-relaxed text-center">
                     "{study.quote}"
                   </p>
                 </div>
@@ -319,7 +396,7 @@ export default function Home() {
           <div className="absolute top-[-50px] right-[-50px] w-64 h-64 bg-white/10 rounded-full blur-3xl" />
           <div className="absolute bottom-[-50px] left-[-50px] w-64 h-64 bg-brand-yellow/20 rounded-full blur-3xl" />
           
-          <div className="relative z-10 space-y-10">
+          <div className="relative z-10 space-y-10 flex flex-col items-center w-full">
             <div className="w-24 h-24 bg-brand-yellow rounded-3xl flex items-center justify-center shadow-2xl rotate-12 mx-auto animate-float">
               <MessageCircle size={48} className="text-ink" />
             </div>
@@ -345,8 +422,8 @@ export default function Home() {
               </Link>
             </div>
             
-            <p className="text-white/70 font-bold tracking-widest uppercase text-sm">
-              Average response time: less than 24 hours
+            <p className="text-white/70 font-black tracking-[0.2em] uppercase text-xs w-full text-center">
+              Response time: &lt;24h
             </p>
           </div>
         </motion.div>

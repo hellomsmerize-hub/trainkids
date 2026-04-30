@@ -22,9 +22,20 @@ export default function Footer() {
             <Link
               href="https://www.facebook.com/trainkids.specialneeds"
               target="_blank"
-              className="w-12 h-12 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all shadow-inner"
+              className="w-12 h-12 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all shadow-inner group"
+              aria-label="Facebook"
             >
-              <MessageCircle size={24} />
+              <svg 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                className="w-6 h-6"
+              >
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
             </Link>
             <Link
               href="mailto:admin@trainkids.com.sg"
