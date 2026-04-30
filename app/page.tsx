@@ -17,6 +17,7 @@ import {
   Sparkles,
   Shield,
 } from "lucide-react";
+import { getWhatsAppLink } from "@/lib/whatsapp";
 
 export default function Home() {
   return (
@@ -56,7 +57,7 @@ export default function Home() {
             
             <div className="flex flex-col sm:flex-row gap-5 pt-4 justify-start">
               <Link
-                href="https://wa.me/6593867654?text=Hi%20Train%20Kids!%20I%20would%20like%20to%20know%20more%20about%20your%20programmes."
+                href={getWhatsAppLink("ENROL_START")}
                 target="_blank"
                 className="clay-button bg-brand-green text-white px-10 py-6 flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-95 transition-all"
               >
@@ -413,7 +414,7 @@ export default function Home() {
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center pt-4">
               <Link
-                href="https://wa.me/6593867654?text=Hi%20Train%20Kids!%20I%20would%20like%20to%20know%20more%20about%20your%20programmes."
+                href={getWhatsAppLink("ENROL_START")}
                 target="_blank"
                 className="clay-button bg-white text-brand-green px-12 py-7 flex items-center justify-center gap-4 hover:scale-110 transition-all shadow-2xl"
               >

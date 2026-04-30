@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Star, MessageCircle, ArrowRight, Quote, Sparkles, TrendingUp, Heart } from "lucide-react";
+import { getWhatsAppLink } from "@/lib/whatsapp";
 
 export default function StudentShowcase() {
   const milestones = [
@@ -223,7 +224,7 @@ export default function StudentShowcase() {
             </p>
             <div className="flex justify-center pt-6">
               <Link
-                href="https://wa.me/6593867654?text=Hi%20Train%20Kids!%20I%20would%20like%20to%20know%20more."
+                href={getWhatsAppLink("SUCCESS_STORIES")}
                 target="_blank"
                 className="clay-button bg-brand-green text-white px-12 py-6 flex items-center gap-4 font-black text-2xl hover:scale-105 transition-all shadow-2xl shadow-brand-green/20"
               >

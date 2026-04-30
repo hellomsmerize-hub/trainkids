@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { MessageCircle, Mail, MapPin, Phone, ArrowRight, Heart } from "lucide-react";
+import { getWhatsAppLink } from "@/lib/whatsapp";
 
 export default function Footer() {
   return (
@@ -90,13 +91,19 @@ export default function Footer() {
               </div>
             </li>
             <li className="flex gap-4 group">
-              <div className="w-10 h-10 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange shrink-0 group-hover:rotate-12 transition-transform">
-                <Phone size={20} />
-              </div>
-              <div className="text-ink-light text-sm font-medium">
-                <strong className="text-ink block mb-1">WhatsApp</strong>
-                9386 7654 (Mon—Fri, 9am—6pm)
-              </div>
+              <Link 
+                href={getWhatsAppLink("GENERAL_CONTACT")}
+                target="_blank"
+                className="flex gap-4 w-full"
+              >
+                <div className="w-10 h-10 rounded-xl bg-brand-green/10 flex items-center justify-center text-brand-green shrink-0 group-hover:rotate-12 transition-transform">
+                  <MessageCircle size={20} />
+                </div>
+                <div className="text-ink-light text-sm font-medium">
+                  <strong className="text-ink block mb-1">WhatsApp</strong>
+                  9386 7654 (Mon—Fri, 9am—6pm)
+                </div>
+              </Link>
             </li>
           </ul>
         </div>

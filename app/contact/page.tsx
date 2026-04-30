@@ -15,6 +15,7 @@ import {
   Sparkles,
   ExternalLink,
 } from "lucide-react";
+import { getWhatsAppLink } from "@/lib/whatsapp";
 import { useEffect, useRef } from "react";
 
 // Types for Leaflet
@@ -66,7 +67,7 @@ export default function Contact() {
               <div className="space-y-6">
                 {[
                   {
-                    href: "https://wa.me/6593867654?text=Hi%20Train%20Kids!%20I%20would%20like%20to%20know%20more.",
+                    href: getWhatsAppLink("GENERAL_CONTACT"),
                     label: "WhatsApp (Primary)",
                     val: "9386 7654",
                     color: "brand-green",

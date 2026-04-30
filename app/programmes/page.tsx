@@ -20,6 +20,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/Accordion";
+import { getWhatsAppLink, WhatsAppContext } from "@/lib/whatsapp";
 
 export default function Programmes() {
   const programmes = [
@@ -78,8 +79,16 @@ export default function Programmes() {
       ],
       color: "brand-orange",
       icon: School,
+      whatsappContext: "PROG_SPED" as WhatsAppContext,
     },
   ];
+
+  const programmeContexts: Record<string, WhatsAppContext> = {
+    "Early Intervention (EIPIC)": "PROG_EIPIC",
+    "Occupational Therapy": "PROG_OT",
+    "Speech Therapy": "PROG_ST",
+    "Student Care (SPED)": "PROG_SPED",
+  };
 
   const faqs = [
     {
@@ -201,7 +210,7 @@ export default function Programmes() {
 
                   <div className="pt-10 flex justify-center">
                     <Link
-                      href="https://wa.me/6593867654?text=Hi%20Train%20Kids!%20I%20would%20like%20to%20know%20more%20about%20your%20programmes."
+                      href={getWhatsAppLink(programmeContexts[prog.title])}
                       target="_blank"
                       className={`clay-button ${
                         prog.color === 'brand-red' ? 'bg-brand-red' : 
@@ -243,13 +252,13 @@ export default function Programmes() {
 
           <div className="mt-20 text-center">
             <div className="clay-card p-10 bg-white inline-flex flex-col md:flex-row items-center gap-8 shadow-xl">
-              <p className="text-xl font-bold text-ink">Have more questions?</p>
               <Link 
-                href="/contact" 
-                className="clay-button bg-brand-orange text-white px-8 py-4 flex items-center gap-2 hover:rotate-2 transition-all shadow-lg"
+                href={getWhatsAppLink("PRICING_ENROL")}
+                target="_blank"
+                className="clay-button bg-brand-orange text-white px-8 py-4 flex items-center gap-3 hover:rotate-2 transition-all shadow-lg"
               >
-                <span className="font-black">Contact Us Directly</span>
-                <ArrowRight size={20} />
+                <MessageCircle size={20} />
+                <span className="font-black">Ask About Pricing & Enrolment</span>
               </Link>
             </div>
           </div>
