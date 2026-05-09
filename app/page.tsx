@@ -211,7 +211,7 @@ export default function Home() {
                   color: "brand-red",
                 },
                 {
-                  title: "Extended Hours",
+                  title: "Session Hours",
                   desc: "Sessions up to 4 hours to give children the time they need to truly engage and learn.",
                   icon: Clock,
                   color: "brand-green",
@@ -340,18 +340,18 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {[
               {
-                title: "From non-verbal to confident communicator",
-                quote: "Watching our child start to express their needs and share their world with us has been a dream come true.",
+                title: "From Desperate to Thriving: Damien's Story",
+                quote: "With the support from TrainKids Damien's behavior and social skill has improved tremendously! He can now communicate with other children, control his emotions, try new food and even toilet trained.",
                 step: 1,
                 color: "brand-red",
-                href: "/showcase/case-study-1",
+                href: "/showcase",
               },
               {
-                title: "Achieved full toilet independence",
-                quote: "The relief and confidence this has brought to our family is indescribable. A huge win for his independence!",
+                title: "Night and Day Progress: Houd's Journey",
+                quote: "Words cannot describe the progress he's made. It is night and day with no exaggeration. He is now toilet trained thanks TrainKids! Houd is able to talk albeit short and simple sentences, making observations about things around him and READ (level 1 books)!",
                 step: 2,
                 color: "brand-green",
-                href: "/showcase/case-study-2",
+                href: "/showcase",
               }
             ].map((study, i) => (
               <motion.div 
@@ -369,14 +369,14 @@ export default function Home() {
                     {study.step}
                   </div>
                   <h3 className="text-3xl font-black mb-6 text-ink leading-tight group-hover:text-ink transition-colors text-left">
-                    "{study.title}"
+                    {study.title}
                   </h3>
                   <p className="text-xl text-ink-light italic mb-10 leading-relaxed text-center">
                     "{study.quote}"
                   </p>
                 </div>
                 <Link href={study.href} className={`flex items-center gap-2 ${study.color === 'brand-red' ? 'text-brand-red' : 'text-brand-green'} font-black uppercase tracking-wider text-sm hover:translate-x-2 transition-transform`}>
-                  <span>View Case Study</span>
+                  <span>View Success Story</span>
                   <ArrowRight size={18} />
                 </Link>
               </motion.div>

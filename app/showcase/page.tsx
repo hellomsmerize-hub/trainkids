@@ -127,9 +127,24 @@ export default function StudentShowcase() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
-              { name: "Parent of Student", programme: "EIP Programme" },
-              { name: "Grateful Family", programme: "Speech Therapy" },
-              { name: "Mother of Two", programme: "Student Care" },
+              { 
+                name: "Shannon", 
+                role: "Damien's Mummy",
+                programme: "EIP Programme",
+                quote: "Before TrainKids we were in a really desperate situation... With their support, Damien's behavior and social skills have improved tremendously! He can now communicate with other children, control his emotions, and is even toilet trained. Thank you TrainKids for being part of Damien's journey."
+              },
+              { 
+                name: "Parent of Houd", 
+                role: "Success Story",
+                programme: "Early Intervention",
+                quote: "Words cannot describe the progress Houd has made. It is night and day! He is now toilet trained, able to talk in short sentences, and even starting to READ! He made such good progress in such a short amount of time. One word: No regrets!"
+              },
+              { 
+                name: "Parent of Uswah", 
+                role: "Success Story",
+                programme: "Therapy & Care",
+                quote: "We have seen so many changes in Uswah. She follows instructions well, is more confident in vocalising her needs, and has improved eye contact. She is much more independent with her basic needs now. Thank you to the teachers at Train Kids!"
+              },
             ].map((item, i) => (
               <motion.div 
                 key={i} 
@@ -137,23 +152,23 @@ export default function StudentShowcase() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="clay-card p-10 bg-white relative group"
+                className="clay-card p-10 bg-white relative group h-full flex flex-col justify-between"
               >
                 <div className="absolute -top-6 -left-6 w-12 h-12 bg-brand-blue rounded-2xl flex items-center justify-center text-white shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-500">
                   <Quote size={24} />
                 </div>
                 
-                <div className="flex gap-1 text-brand-yellow mb-8">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <Star key={s} size={20} className="fill-brand-yellow" />
-                  ))}
+                <div>
+                  <div className="flex gap-1 text-brand-yellow mb-8">
+                    {[1, 2, 3, 4, 5].map((s) => (
+                      <Star key={s} size={20} className="fill-brand-yellow" />
+                    ))}
+                  </div>
+                  
+                  <p className="text-xl text-ink-light font-medium italic leading-relaxed mb-10 relative z-10 text-justify">
+                    "{item.quote}"
+                  </p>
                 </div>
-                
-                <p className="text-xl text-ink-light font-medium italic leading-relaxed mb-10 relative z-10 text-center">
-                  "Train Kids has been a second home for our son. The progress
-                  he's made in his speech and social skills in just a few months
-                  is more than we saw in a whole year elsewhere."
-                </p>
                 
                 <div className="flex items-center gap-4 pt-8 border-t border-surface">
                   <div className="w-12 h-12 bg-brand-blue/10 rounded-2xl flex items-center justify-center text-brand-blue font-black text-xl">

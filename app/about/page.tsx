@@ -92,7 +92,7 @@ export default function About() {
           >
             <div className="clay-card aspect-[4/5] bg-surface overflow-hidden relative group">
               <Image 
-                src="/about-story.png"
+                src="/about-founder.png"
                 alt="Our Founders"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
@@ -191,7 +191,7 @@ export default function About() {
                 </div>
                 <div className="pt-6 border-t border-surface">
                   <p className="text-sm font-black text-ink/40 uppercase tracking-widest">
-                    AEPS Certified
+                    AHPC Certified
                   </p>
                 </div>
               </motion.div>
@@ -212,6 +212,12 @@ export default function About() {
               
               <div className="space-y-10">
                 {[
+                  {
+                    title: "ECDA EIPIC-P Centre",
+                    desc: "Train Kids has been an ECDA appointed EIPIC-P centre for the past 7 years, delivering trusted care.",
+                    icon: Shield,
+                    color: "brand-red",
+                  },
                   {
                     title: "ECDA-Approved Provider",
                     desc: "Train Kids is an approved Early Intervention Programme provider under ECDA, ensuring standard of care.",
@@ -239,14 +245,18 @@ export default function About() {
                     transition={{ delay: i * 0.1 }}
                     className="flex gap-6 group"
                   >
-                    <div className={`w-14 h-14 rounded-2xl ${item.color === 'brand-green' ? 'bg-brand-green' : item.color === 'brand-orange' ? 'bg-brand-orange' : 'bg-brand-blue'} flex items-center justify-center text-white shrink-0 shadow-xl group-hover:scale-110 transition-transform mx-auto`}>
+                    <div className={`w-14 h-14 rounded-2xl ${
+                      item.color === 'brand-green' ? 'bg-brand-green' : 
+                      item.color === 'brand-orange' ? 'bg-brand-orange' : 
+                      item.color === 'brand-blue' ? 'bg-brand-blue' : 'bg-brand-red'
+                    } flex items-center justify-center text-white shrink-0 shadow-xl group-hover:scale-110 transition-transform`}>
                       <item.icon size={28} />
                     </div>
                     <div>
-                      <h4 className="text-2xl font-black text-ink mb-2 group-hover:text-brand-green transition-colors text-center">
+                      <h4 className="text-2xl font-black text-ink mb-2 group-hover:text-brand-green transition-colors text-left">
                         {item.title}
                       </h4>
-                      <p className="text-ink-light text-lg font-medium leading-relaxed max-w-md text-center">
+                      <p className="text-ink-light text-lg font-medium leading-relaxed max-w-md text-left">
                         {item.desc}
                       </p>
                     </div>

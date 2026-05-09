@@ -105,6 +105,20 @@ export default function Footer() {
                 </div>
               </Link>
             </li>
+            <li className="flex gap-4 group">
+              <Link 
+                href="tel:69088966"
+                className="flex gap-4 w-full"
+              >
+                <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0 group-hover:rotate-12 transition-transform">
+                  <Phone size={20} />
+                </div>
+                <div className="text-ink-light text-sm font-medium">
+                  <strong className="text-ink block mb-1">Office Line</strong>
+                  6908 8966 (Mon—Fri, 9am—6pm)
+                </div>
+              </Link>
+            </li>
           </ul>
         </div>
 

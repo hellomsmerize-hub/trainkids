@@ -131,7 +131,7 @@ export default function Contact() {
                 <div className="flex justify-between items-center pb-6 border-b border-surface-dark">
                   <span className="font-bold text-ink-light text-lg">Monday – Friday</span>
                   <span className="font-black text-ink text-lg">
-                    7:30 AM – 6:00 PM
+                    7:30 AM – 6:30 PM
                   </span>
                 </div>
                 <div className="flex justify-between items-center text-ink/20 italic">
@@ -181,7 +181,7 @@ export default function Contact() {
                   <div className="flex items-center gap-4 pt-4">
                     <div className="px-4 py-2 bg-surface rounded-full text-xs font-black text-ink/40 flex items-center gap-2 uppercase tracking-widest">
                       <Clock size={14} />
-                      Full Day Sessions
+                      7:30AM – 6:30PM
                     </div>
                   </div>
                 </motion.div>
